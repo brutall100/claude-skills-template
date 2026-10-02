@@ -37,30 +37,10 @@ Daugumą skill'ų Claude pasiima pats. Kai kuriuos gali iškviesti ir ranka, par
 | **Ponytail** (6 skill'ai) | Rašo kuo mažiau kodo. Šiame šablone — švelnus `lite` lygis: pasiūlo paprastesnį variantą, o renkiesi tu | Pats; `/ponytail-review`, `/ponytail-audit`; išjungti — „stop ponytail“ | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) |
 | **Impeccable** | Padeda daryti gražias svetaines: dizaino patikra ir 24 komandos | `/impeccable init` (pirmą kartą), `/impeccable polish`, `/impeccable audit` | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) |
 | **Diagram Design** | Nupiešia diagramas (daugiau nei 40 rūšių) kaip HTML/SVG failus | „Nupiešk diagramą...“ | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) |
-| **Humanizer** | Perrašo tekstą, kad neskambėtų kaip AI (ieško 26 požymių) | `/humanizer` | [blader/humanizer](https://github.com/blader/humanizer) |
+| **Humanizer** | Perrašo tekstą, kad neskambėtų kaip AI (ieško 26 požymių). Lietuviškam tekstui svarbesnis `lietuviskas-tekstas`, nes Humanizer trintų teisingus lietuviškus brūkšnius (—) ir kabutes („…“) | `/humanizer` | [blader/humanizer](https://github.com/blader/humanizer) |
 | **Security Audit** | Ieško saugumo spragų kode. Sukūrė Cloudflare | „Padaryk saugumo auditą“ | [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill) |
 | **I Have ADHD** | Trumpi atsakymai: pirma veiksmas, žingsniai sunumeruoti | `/i-have-adhd`; išjungti — „stop adhd mode“ | [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) |
 | **lietuviskas-tekstas** | Lietuviško teksto taisyklės: kabutės, datos, pinigai, mygtukai | Pats | Tavo |
-
-## Kas išmesta ir kodėl
-
-Šablonas sukurtas iš sąrašo „Top 10 fastest-growing Claude skill repos, 2026 m. rugsėjis“. Kai du skill'ai daro tą patį, Claude susipainioja — kaip mokinys, kuriam du mokytojai vienu metu liepia daryti skirtingai. Todėl iš dublikatų paliktas geresnis.
-
-| Iš sąrašo | Sprendimas | Kodėl |
-|---|---|---|
-| #5 Superpowers | ✅ Paliktas | Brandžiausias (6.4 versija), yra oficialioje Anthropic parduotuvėje, jo aprašymai užima mažiausiai Claude atminties, jau buvo šiame šablone |
-| #2 Matt Pocock Skills | ❌ Išmestas | Daro tą patį, ką Superpowers: klausinėja, planuoja, rašo testus, peržiūri kodą. Be to, kiekviename projekte reikia papildomai nustatyti užduočių sistemą |
-| #9 Addy Osmani Skills | ❌ Išmestas | Irgi tas pats darbo ciklas. Jo aprašymai Claude atmintyje užima 3 kartus daugiau vietos nei Superpowers |
-| #1 Ponytail | ✅ Paliktas, bet `lite` | Pilnu režimu ginčytųsi su Superpowers: vienas sako „pirma paklausk“, kitas — „iškart padaryk trumpiausią variantą“. `lite` režimu tik pasiūlo paprastesnį variantą |
-| #7 Humanizer | ✅ Paliktas | Lietuviškam tekstui svarbesnis `lietuviskas-tekstas`: Humanizer trina brūkšnius ir keičia „gražias“ kabutes į paprastas, o lietuvių kalboje ir brūkšniai, ir tokios kabutės yra teisingi |
-| #8 Graphify | ⚙️ Neįdėtas automatiškai | Ne dublikatas, bet jam reikia Python programos, kurią jis bando įsidiegti pats. Įsidiek, kai prireiks (žr. žemiau) |
-| #3, #4, #6, #10 | ✅ Palikti | Dublikatų neturi |
-
-Jei kada prireiks vieno konkretaus skill'o iš išmestų rinkinių, įsidiek tik jį, pvz.:
-
-```
-npx skills add addyosmani/agent-skills --skill performance-optimization
-```
 
 ## Kodėl skill'ai nukopijuoti, o ne įdiegti kaip pluginai
 
@@ -116,21 +96,10 @@ description: Kada AI turi naudoti šį skill (viena aiški eilutė).
 ...
 ```
 
-## Pasirinktinai: Graphify
-
-Graphify nupiešia viso projekto „žemėlapį“ (žinių grafą). Tada Claude klausia žemėlapio, o ne skaito kiekvieną failą iš naujo. Naudingiausia dideliems projektams. Reikia Python ir [uv](https://docs.astral.sh/uv/).
-
-```
-uv tool install graphifyy
-graphify install --project
-```
-
-Paketo vardas tikrai su dviem „y“: `graphifyy`. Tada Claude parašyk `/graphify .`
-
 ## Svarbu
 
 - Nauji repo gauna šablono **kopiją**. Pakeitus šabloną, seni repo nepasikeis.
-- `.claude/settings.json` šiame projekte išjungia tuos pačius skill'us, įdiegtus kaip pluginus (jei kada nors juos įsidiegei kompiuteryje). Taip jie nesidubliuoja su kopijomis. Ten išjungti ir išmesti Matt Pocock bei Addy Osmani rinkiniai. Jei kurio nors plugino norisi, ištrink jo eilutę.
+- `.claude/settings.json` šiame projekte išjungia tuos pačius skill'us, įdiegtus kaip pluginus (jei kada nors juos įsidiegei kompiuteryje). Taip jie nesidubliuoja su kopijomis. Jei kurio nors plugino norisi, ištrink jo eilutę.
 - Superpowers telemetrija išjungta (`SUPERPOWERS_DISABLE_TELEMETRY`). Kai naudojamas pasirenkamas „vaizdinis pagalbininkas“, ji įkelia autorių logotipą, kad jie suskaičiuotų naudotojus. Jei nori jiems padėti, ištrink tą eilutę.
 - Superpowers planus ir aprašymus saugo aplanke `docs/superpowers/`.
 - Impeccable pirmą kartą atsisiunčia savo variklį iš savo GitHub ir patikrina jo kontrolinę sumą.
