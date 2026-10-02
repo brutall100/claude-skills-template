@@ -1,0 +1,19 @@
+{
+  "env": {
+    "SUPERPOWERS_DISABLE_TELEMETRY": "1"
+  },
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": false,
+    "superpowers@superpowers-marketplace": false,
+    "superpowers@superpowers-dev": false,
+    "superpowers@synced": false,
+    "ponytail@ponytail": false,
+    "i-have-adhd@i-have-adhd": false,
+    "diagram-design@diagram-design": false,
+    "humanizer@humanizer": false,
+    "impeccable@impeccable": false,
+    "mattpocock-skills@claude-plugins-official": false,
+    "mattpocock-skills@synced": false,
+    "agent-skills@addy-agent-skills": false
+  }
+}

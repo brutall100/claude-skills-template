@@ -1,0 +1,17 @@
+# Aplinka ir slaptažodžiai
+.env
+.env.*
+!.env.example
+
+# Priklausomybės
+node_modules/
+
+# Asmeniniai Claude nustatymai (nedalinti)
+.claude/settings.local.json
+
+# Asmeniniai Impeccable nustatymai (nedalinti)
+.impeccable/config.local.json
+
+# Sistema
+.DS_Store
+Thumbs.db

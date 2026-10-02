@@ -1,0 +1,6 @@
+# Skriptai turi likti su LF eilučių pabaigomis, kitaip Windows'e (Git Bash) jie neveiks.
+*.sh                          text eol=lf
+.claude/skills/*/scripts/*    text eol=lf
+
+# Windows komandų failai (.cmd) Windows'e patikimiau veikia su CRLF.
+*.cmd                         text eol=crlf

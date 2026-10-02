@@ -1,0 +1,6 @@
+# Šį skill'ą nukopijavo .claude/atnaujinti-skills.sh.
+# Ranka nekeisk: kitą kartą atnaujinus pakeitimai dings.
+repo: https://github.com/pbakaus/impeccable
+path: .claude/skills/impeccable
+commit: 508d7e8955de3b3caf2d8676e85206723d41a887
+commit_date: 2026-10-01

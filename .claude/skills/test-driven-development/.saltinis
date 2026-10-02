@@ -1,0 +1,6 @@
+# Šį skill'ą nukopijavo .claude/atnaujinti-skills.sh.
+# Ranka nekeisk: kitą kartą atnaujinus pakeitimai dings.
+repo: https://github.com/obra/superpowers
+path: skills/test-driven-development
+commit: 8ca22dba9a94f28898bbce59f2537ff4d87c747d
+commit_date: 2026-09-25
